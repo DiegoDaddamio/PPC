@@ -5,10 +5,14 @@ User_Score = Bot_Score = 0
 PPS = ["1", "2", "3"]
 NON = ["non", "Non", "NO", "N", "n", "NON", "No", "NoN"]
 OUI = ["oui", "Oui", "OUI", "o", "O", "OUi", "OuI"]
+Max_point = 3
+
 def Mb(s,t):
     time.sleep(s)
     print(t)
 
+
+input("*...*")
 
 print("Bonjour !")
 Mb(2, "Hmm...")
@@ -32,6 +36,11 @@ else:
     user_name = "BLOUBLOU"
     Mb(2, "BLOUBLOU !")
     Mb(1,"Bon bref...")
+if user_name in ["Alex", "Alexou", "Xouxou"]:
+    Mb(1, "HA, mais bien-sûr, vous êtes Dame Alex...")
+    Mb(1,"Maitre Diego m'a tant parlé de vous...")
+    Mb(1, "Et il disait vrai en disant que vous êtes d'une beauté exeptionnel...")
+    Mb(2,"Enfaite je peux pas savoir, je suis un ordinateur")
 
 
 time.sleep(1.5)
@@ -90,7 +99,7 @@ if input("Voudrais tu connaitres les règles de ce jeu ? ") in OUI:
     print("La pierre bat les ciseaux")
     Mb(2,"Le papier bat la pierre")
     Mb(2,"Les ciseaux battent le papier")
-    Mb(2,"Tu vas voir, c'est très facil à comprendre !")
+    Mb(2,"Tu vas voir, c'est très facile à comprendre !")
     Mb(2, "HA, j'ai oublié de te dire qu'au...")
     ppc(0.7)
     print("Le premier à trois points gagne la partie")
@@ -146,14 +155,55 @@ while True :
         print("égalité...")
 
 
-    if User_Score == 3 :
+    if User_Score == Max_point :
         print(f"Félicitation {user_name}, vous avez gagné le...")
         time.sleep(1)
+        User_Score = Bot_Score = 0
         ppc(0.7)
-        break
-    elif Bot_Score == 3 :
+        Rstrt = input("Voulez-vous redéfier Mr Bot ? ")
+        if Rstrt in OUI:
+            Mb(1,f"Très bien {user_name}, je suis prêt pour jouer à ce magnifique jeu qui est...")
+            Mb(2.5,"Le...")
+            time.sleep(2)
+            ppc(0.7)
+            
+        elif Rstrt in NON:
+            Mb(1,f"Très bien {user_name}, je t'attendrais...")
+            Mb(2.5,"Ou je vais attendre pour que Diego m'améliore...")
+            Mb(2,"Enfin bref, j'espère que tu as aimé joué à...")
+            time.sleep(2)
+            ppc(0.7)
+            Mb(1, f"À bientôt {user_name} !")
+            break
+        else:
+            Mb(1, "Hmm...")
+            Mb(1, "J'ai pas compris")
+            Mb(1, "Je prends ça pour un non")
+            Mb(1, f"À bientôt {user_name} !")
+            break
+    elif Bot_Score == Max_point :
         print("Dommage... Mr Bot est trop fort pour toi...")
-        break
-    print("_" * 50)
-
+        User_Score = Bot_Score = 0
+        Rstrt = input("Voulez-vous redéfier Mr Bot ? ")
+        if Rstrt in OUI:
+            Mb(1,f"Très bien {user_name}, je suis prêt pour jouer à un jeu...")
+            Mb(2.5,"Le...")
+            time.sleep(2)
+            ppc(0.7)
+            
+        elif Rstrt in NON:
+            Mb(1,f"Très bien {user_name}, je t'attendrais...")
+            Mb(2.5,"Ou je vais attendre pour que Diego m'améliore...")
+            Mb(2,"Enfin bref, j'espère que tu as aimé joué à...")
+            time.sleep(2)
+            ppc(0.7)
+            Mb(1, f"À bientôt {user_name} !")
+            break
+        else:
+            Mb(1, "Hmm...")
+            Mb(1, "J'ai pas compris")
+            Mb(1, "Je prends ça pour un non")
+            Mb(1, f"À bientôt {user_name} !")
+            print("_" * 50)
+            break
 print("Fin de partie.")
